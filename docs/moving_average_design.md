@@ -40,34 +40,34 @@ Using the **Sliding Window Algorithm**, the time complexity is O(n). Using a que
   
   1. Calculation of Moving Average after a list of elements are assigned, the following is the example snippet:      
   
-	    int window_size = 3; 
-	    List<Double> list = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0);    
-		MovingAverage<Double> movingAverage_list = new MovingAverageImpl(window_size);
-		movingAverage_list.setElements(list);
-		List<Double> averageList = movingAverage_list.calculateMovingAverage();	             
-        averageList.stream()
-		           .forEach(x -> System.out.println("moving average for last " 
-	   	                         + window_size + " elements: " + x));
+>	    int window_size = 3;     
+>	    List<Double> list = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0);    	
+>		MovingAverage<Double> movingAverage_list = new MovingAverageImpl(window_size);		
+>		movingAverage_list.setElements(list);		
+>		List<Double> averageList = movingAverage_list.calculateMovingAverage();	             
+>        averageList.stream()
+>		           .forEach(x -> System.out.println("moving average for last " 
+>		                         + window_size + " elements: " + x));
 
    2. Calculation of Moving Average when a sequence of elements are added one by one, the following is the example snippet:      
-  	   	 
-	   	MovingAverage<Double> movingAverage_sequence = new MovingAverageImpl(window_size);
-	   	System.out.println(movingAverage_sequence.addElement(1d));
-	   	System.out.println(movingAverage_sequence.addElement(2d));
-	   	System.out.println(movingAverage_sequence.addElement(3d));
-	   	System.out.println(movingAverage_sequence.addElement(4d));
-	   	System.out.println(movingAverage_sequence.addElement(5d));
-	   	System.out.println(movingAverage_sequence.addElement(6d));
-	   	System.out.println(movingAverage_sequence.addElement(7d));
-	   	System.out.println(movingAverage_sequence.addElement(8d));
-
+        
+>       MovingAverage<Double> movingAverage_sequence = new MovingAverageImpl(window_size);...
+>       System.out.println(movingAverage_sequence.addElement(1d));	   	
+>       System.out.println(movingAverage_sequence.addElement(2d));	   	
+>       System.out.println(movingAverage_sequence.addElement(3d));   	
+>       System.out.println(movingAverage_sequence.addElement(4d));
+>       System.out.println(movingAverage_sequence.addElement(5d));
+>       System.out.println(movingAverage_sequence.addElement(6d));
+>       System.out.println(movingAverage_sequence.addElement(7d));
+>       System.out.println(movingAverage_sequence.addElement(8d));
+	   	
    3. Calculation of Moving Average in a Stream, the following is the example snippet:  		
     
-	   	MovingAverage<Double> movingAverage_stream = new MovingAverageImpl(window_size);
-	   	list.stream()   	     
-	   	     .map(a -> movingAverage_stream.calculateMovingAverage(a))
-	   	     .filter(b -> b != null)
-	   	     .forEach(c -> System.out.println(c));
+>       MovingAverage<Double> movingAverage_stream = new MovingAverageImpl(window_size);
+>       list.stream()   	     
+>            .map(a -> movingAverage_stream.calculateMovingAverage(a))
+>            .filter(b -> b != null)
+>            .forEach(c -> System.out.println(c));
 	   	     
 ## Possible Enhancement
 In the more complex environment, the Spring or CDI Frameworks may be used for injecting implementation classes to decouple implementation classes and calling classes. 	   	     
